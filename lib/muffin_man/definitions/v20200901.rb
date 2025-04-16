@@ -3,15 +3,15 @@
 module MuffinMan
   module Definitions
     class V20200901 < SpApiClient
-      def search_definitions_product_types(marketplace_ids, keywords: nil, itemName: nil, locale: nil, searchLocale: nil)
+      def search_definitions_product_types(marketplace_ids, keywords: nil, item_name: nil, locale: nil, search_locale: nil)
         @local_var_path = "/definitions/2020-09-01/productTypes"
         @marketplace_ids = marketplace_ids.is_a?(Array) ? marketplace_ids : [marketplace_ids]
         @keywords = keywords.is_a?(Array) ? keywords : [keywords]
         @query_params = { marketplaceIds: @marketplace_ids.join(",") }
         @query_params["keywords"] = @keywords.join(",") if keywords
-        @query_params["itemName"] = itemName if itemName
+        @query_params["itemName"] = item_name if item_name
         @query_params["locale"] = locale if locale
-        @query_params["searchLocale"] = searchLocale if searchLocale
+        @query_params["searchLocale"] = search_locale if search_locale
         @request_type = "GET"
         call_api
       end
